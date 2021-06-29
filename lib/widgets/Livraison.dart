@@ -54,6 +54,13 @@ class _LivraisonState extends State<Livraison> {
 
           SizedBox(height: 50,),
 
+          Text("Total elements : ${'105'} DH", style: Theme.of(context).textTheme.headline5,),
+          SizedBox(height: 20,),
+          Text("Livraison : ${'7'} DH", style: Theme.of(context).textTheme.headline5,),
+          SizedBox(height: 20,),
+          Text("Total : ${'112'} DH", style: Theme.of(context).textTheme.headline5,),
+
+          SizedBox(height: 50,),
           Row(
             children: [
               Expanded(

@@ -67,7 +67,7 @@ class StatItem extends State<Item> {
 
   _addPanier(int itemId) {
     var url = Uri.parse(
-        "http://${Host.url}:8080/panier?client_id=${userId}&operation=add&buyable_id=$itemId"
+        "${Host.url}/panier?client_id=${userId}&operation=add&buyable_id=$itemId"
     );
     http.get(url).then((response) {
       print(response.body);

@@ -40,7 +40,7 @@ class _ParaignageState extends State<Paraignage> {
   }
 
   void _getProfil() {
-    var url = Uri.parse("http://${Host.url}:8080/user?id=$userId");
+    var url = Uri.parse("${Host.url}/user?id=$userId");
     http.get(url)
         .then((response) {
       print(response.body);
@@ -52,7 +52,7 @@ class _ParaignageState extends State<Paraignage> {
 
   _useCodePromo() {
     http.post(
-      Uri.parse('http://${Host.url}:8080/client/use/codePromo'),
+      Uri.parse('${Host.url}/client/use/codePromo'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

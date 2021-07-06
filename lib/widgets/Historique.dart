@@ -42,7 +42,7 @@ class HistoriqueStat extends State<Historique> {
   }
 
   void _getHistorique() {
-    var url = Uri.parse("http://${Host.url}:8080/client/historique?client_id=$userId");
+    var url = Uri.parse("${Host.url}/client/historique?client_id=$userId");
     http.get(url)
         .then((response) {
       print(response.body);

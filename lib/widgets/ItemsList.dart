@@ -55,7 +55,7 @@ class StatItemList extends State<ItemsList> {
   }
 
   void _getMenu() {
-    var url = Uri.parse("http://${Host.url}:8080/menu?mc=$searchText");
+    var url = Uri.parse("${Host.url}/menu?mc=$searchText");
     http.get(url)
         .then((response) {
       print(response.body);

@@ -44,7 +44,7 @@ class _StateReservationEnCours extends State<ReservationEnCours>{
   }
 
   void _getReservationEnCours() {
-    var url = Uri.parse("http://${Host.url}:8080/client/reservationEnCours?client_id=$userId");
+    var url = Uri.parse("${Host.url}/client/reservationEnCours?client_id=$userId");
     http.get(url)
         .then((response) {
       print(response.body);

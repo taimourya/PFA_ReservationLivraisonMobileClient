@@ -47,7 +47,7 @@ class _ReservationState extends State<Reservation> {
 
   saveReservation() {
     http.post(
-      Uri.parse('http://${Host.url}:8080/commande/reservation'),
+      Uri.parse('${Host.url}/commande/reservation'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -69,7 +69,7 @@ class _ReservationState extends State<Reservation> {
 
   _getTotalPanier() {
     var url = Uri.parse(
-        "http://${Host.url}:8080/panier/total?client_id=${userId}"
+        "${Host.url}/panier/total?client_id=${userId}"
     );
     http.get(url).then((response) {
       print(response.body);

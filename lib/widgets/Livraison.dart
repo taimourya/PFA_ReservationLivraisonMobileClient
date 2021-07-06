@@ -50,7 +50,7 @@ class _LivraisonState extends State<Livraison> {
 
   saveLivraison() {
     http.post(
-      Uri.parse('http://${Host.url}:8080/commande/livraison'),
+      Uri.parse('${Host.url}/commande/livraison'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -77,7 +77,7 @@ class _LivraisonState extends State<Livraison> {
 
   _getTotalPanier() {
     var url = Uri.parse(
-        "http://${Host.url}:8080/panier/total?client_id=${userId}"
+        "${Host.url}/panier/total?client_id=${userId}"
     );
     http.get(url).then((response) {
       print(response.body);

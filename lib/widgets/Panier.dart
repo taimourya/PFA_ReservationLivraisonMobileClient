@@ -42,7 +42,7 @@ class _PanierState extends State<Panier> {
   }
   _getPanier() {
     var url = Uri.parse(
-        "http://${Host.url}:8080/panier?client_id=${userId}&operation=get"
+        "${Host.url}/panier?client_id=${userId}&operation=get"
     );
     http.get(url).then((response) {
       print(response.body);
@@ -61,7 +61,7 @@ class _PanierState extends State<Panier> {
 
   _getTotalPanier() {
     var url = Uri.parse(
-        "http://${Host.url}:8080/panier/total?client_id=${userId}"
+        "${Host.url}/panier/total?client_id=${userId}"
     );
     http.get(url).then((response) {
       print(response.body);
@@ -78,7 +78,7 @@ class _PanierState extends State<Panier> {
 
   _addQtnPanier(int itemId) {
     var url = Uri.parse(
-        "http://${Host.url}:8080/panier?client_id=${userId}&operation=add&buyable_id=$itemId"
+        "${Host.url}/panier?client_id=${userId}&operation=add&buyable_id=$itemId"
     );
     http.get(url).then((response) {
       print(response.body);
@@ -90,7 +90,7 @@ class _PanierState extends State<Panier> {
   }
   _remQtnPanier(int itemId) {
     var url = Uri.parse(
-        "http://${Host.url}:8080/panier?client_id=${userId}&operation=rem&buyable_id=$itemId"
+        "${Host.url}/panier?client_id=${userId}&operation=rem&buyable_id=$itemId"
     );
     http.get(url).then((response) {
       print(response.body);
@@ -102,7 +102,7 @@ class _PanierState extends State<Panier> {
   }
   _delPanier(int itemId) {
     var url = Uri.parse(
-        "http://${Host.url}:8080/panier?client_id=${userId}&operation=del&buyable_id=$itemId"
+        "${Host.url}/panier?client_id=${userId}&operation=del&buyable_id=$itemId"
     );
     http.get(url).then((response) {
       print(response.body);
@@ -115,7 +115,7 @@ class _PanierState extends State<Panier> {
 
   _clearPanier(int itemId) {
     var url = Uri.parse(
-        "http://${Host.url}:8080/panier?client_id=${userId}&operation=clear"
+        "${Host.url}/panier?client_id=${userId}&operation=clear"
     );
     http.get(url).then((response) {
       print(response.body);

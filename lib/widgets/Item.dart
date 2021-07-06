@@ -52,7 +52,7 @@ class StatItem extends State<Item> {
   }
   _initItem() {
     var url = Uri.parse(
-        "http://${Host.url}:8080/buyable?id=${widget.itemId}"
+        "${Host.url}/buyable?id=${widget.itemId}"
     );
     http.get(url).then((response) {
       print(response.body);

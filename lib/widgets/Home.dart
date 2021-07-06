@@ -49,7 +49,7 @@ class _HomeState extends State<Home>{
     var url = Uri.parse("${Host.url}/conversation/check?user_id=$userId");
 
     http.get(url).then((response) {
-      print(response.body);
+      //print(response.body);
       if(response.statusCode == 200) {
         setState(() {
           timerConversation?.cancel();

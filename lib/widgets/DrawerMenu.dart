@@ -4,6 +4,7 @@
 import 'package:client/widgets/Home.dart';
 import 'package:client/widgets/Login.dart';
 import 'package:client/widgets/Menu.dart';
+import 'package:client/widgets/RestaurantProche.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:client/widgets/CommandeEnCours.dart';
@@ -47,7 +48,8 @@ class DrawerMenu extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Menu()),
+                MaterialPageRoute(builder: (context) => RestaurantProche()),
+                //MaterialPageRoute(builder: (context) => Menu()),
               );
             },
           ),

@@ -103,28 +103,31 @@ class _LivraisonState extends State<Livraison> {
       body: Column(
         children: [
           SizedBox(height: 50,),
-          Row(
-            children: [
-              TextButton(
-                child: Text(
-                  "Localisation du lieux de la livraison",
-                  style: TextStyle(color: Colors.blue, fontSize: 20),
+          Center(
+            child: Row(
+              children: [
+                TextButton(
+                  child: Text(
+                    "Localisation du lieux",
+                    style: TextStyle(color: Colors.blue, fontSize: 20),
+                  ),
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Localisation()),
+                    );
+                  },
                 ),
-                onPressed: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Localisation()),
-                  );
-                },
-              ),
-              SizedBox(width: 20,),
+                SizedBox(width: 20,),
 
-              widget.latLng.latitude == 0?
+                widget.latLng.latitude == 0?
                 Icon(Icons.warning_amber_sharp, color: Colors.red,)
-                :
+                    :
                 Icon(Icons.check, color: Colors.green,)
-            ],
+              ],
+            ),
           ),
+
 
           SizedBox(height: 50,),
 

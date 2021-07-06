@@ -7,6 +7,7 @@ import 'dart:ffi';
 import 'package:client/widgets/Livraison.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:client/widgets/DrawerMenu.dart';
 
@@ -23,12 +24,26 @@ class _StateLocalisation extends State<Localisation>{
 
   late GoogleMapController mapController;
 
-  final LatLng _center = const LatLng(33.5761412, -7.5427257);
+  LatLng _center = LatLng(33.5761412, -7.5427257);
 
   late Marker source = Marker(
       markerId: MarkerId('home'),
       position: LatLng(0, 0),
   );
+
+  Future<void> getCurrentPosition() async {
+    var currentPosition;
+    currentPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    LatLng position = LatLng(currentPosition.latitude, currentPosition.longitude);
+    setState(() {
+      source = Marker(
+          markerId: MarkerId('home'),
+          position: position,
+          icon: BitmapDescriptor.defaultMarker,
+          infoWindow: InfoWindow(title: 'Current Location')
+      );
+    });
+  }
 
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
@@ -37,6 +52,7 @@ class _StateLocalisation extends State<Localisation>{
 
   @override
   Widget build(BuildContext context) {
+    print("source : ${source.position}");
     return Scaffold(
       appBar: AppBar(
         title: Text('Localisez votre position'),
@@ -63,7 +79,7 @@ class _StateLocalisation extends State<Localisation>{
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.location_searching),
         onPressed: () {
-
+          getCurrentPosition();
         },
       ),
       body: GoogleMap(

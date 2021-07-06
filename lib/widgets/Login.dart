@@ -57,7 +57,7 @@ class _LoginState extends State<Login> {
       title: 'Restaurant',
       logo: 'assets/images/logo.png',
       onLogin: (data) {
-
+        print('${Host.url}/user/login');
         return Future.delayed(loginTime).then((_) {
           return http.post(
             Uri.parse('${Host.url}/user/login'),
